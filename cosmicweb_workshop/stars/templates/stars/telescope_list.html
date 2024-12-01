@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cosmic web workshop</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="{% static 'stars/styles.css' %}">
+    </head>
+    <body>
+        <h1>List of Telescopes</h1>
+        <div class="list-view">
+            {% for telescope in telescopes %}
+            <div class="list-item">
+                <h2>{{ telescope.name }}</h2>
+                <p><em>Type: </em> {{ telescope.type }}</p>
+                <p><em>Location: </em> {{ telescope.location }}</p>
+                <p><em>Description: </em> {{ telescope.description }}</p>
+            </div>
+            {% endfor %}
+        </div> 
+    </body>
+</html>
