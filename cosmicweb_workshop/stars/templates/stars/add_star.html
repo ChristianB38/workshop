@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add a star</title>
+        <link rel="stylesheet" href="{% static 'stars/styles.css' %}">
+    </head>
+    <body>
+        <h1>Add a New Star</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Star</button>
+        </form>
+        <a href="{% url 'star_list' %}">Back to Star List</a>
+    </body>
+</html>
