@@ -1,0 +1,21 @@
+{% extends 'stars/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ title }}</h2>
+    <div class="list-view">
+        {% for item in items %}
+        <div class="list-item">
+            <h2>{{ item.name }}</h2>
+            <span>{{ item.details }}</span>
+            {% if item.edit_url %}
+                <a href="{{ item.edit_url }}">Edit</a> 
+            {% endif %}
+            {% if item.delete_url %}
+                <a href="{{ item.delete_url }}">Delete</a> 
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div> 
+{% endblock %}

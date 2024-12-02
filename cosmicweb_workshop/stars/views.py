@@ -6,11 +6,41 @@ from django.urls import reverse
 
 def star_list(request):
     stars = Star.objects.all()
-    return render(request, 'stars/star_list.html', {'stars': stars})
+
+    items = [
+        {
+            "name": star.name,
+            "details": f"Constellation: {star.constellation}, Magnitude: {star.magnitude}",
+            "edit_url": reverse('update_star', args=[star.id]),
+            "delete_url": reverse('delete_star', args=[star.id])
+        }
+        for star in stars
+    ]
+
+    context = {
+        "title": "Star List",
+        "items": items,
+    }
+
+    return render(request, 'stars/list_view.html', context)
 
 def telescope_list(request):
     telescopes = Telescope.objects.all()
-    return render(request, 'stars/telescope_list.html', {'telescopes': telescopes})
+
+    items = [
+        {
+            "name": telescope.name,
+            "details": f"Location: {telescope.location}, Type: {telescope.type}"
+        }
+        for telescope in telescopes
+    ]
+
+    context = {
+        "title": "Telescope List",
+        "items": items,
+    }
+
+    return render(request, 'stars/list_view.html', context)
 
 def add_star(request):
     if request.method == "POST":
