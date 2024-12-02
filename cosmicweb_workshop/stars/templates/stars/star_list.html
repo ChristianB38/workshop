@@ -17,6 +17,7 @@
                 <p><em>Constellation: </em> {{ star.constellation }}</p>
                 <p><em>Magnitude: </em> {{ star.magnitude }}</p>
                 <p><em>Description: </em> {{ star.description }}</p>
+                <a href="{% url 'update_star' star.id %}">Edit</a> <a href="{% url 'delete_star' star.id %}">Delete</a>
             </div>
             {% endfor %}
         </div> 
