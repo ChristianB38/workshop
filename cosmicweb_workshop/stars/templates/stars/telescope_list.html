@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="background">
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link rel="stylesheet" href="{% static 'stars/styles.css' %}">
+        <title>Cosmic web workshop</title>
+        <meta charset="UTF-8" />
+    </head>
+    <div class="paragraphs">
+    <body>
+        <div class="header">
+        <h1>List of Telescopes</h1>
+        </div>
+        <ul>
+            {% for telescope in telescope %}
+            <li>
+                <strong>{{ telescope.name }}</strong> ({{ telescope.constellation}}): Magnitude {{ telescope.magnitude }} is a bueatiful telescope
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+    </div>
+
+    <footer>
+        The end	
+    </footer>
+</html>
+</div>

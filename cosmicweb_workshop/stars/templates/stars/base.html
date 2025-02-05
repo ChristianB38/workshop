@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cosmic Web{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'stars/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Cosmic Web Workshop</h1>
+        <nav>
+            <a href="{% url 'star_list' %}">Stars</a>
+            <a href="{% url 'add_star' %}">Add Star</a>
+            <a href="{% url 'telescope_list' %}">Telescopes</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Cosmic Web Workshop</p>
+    </footer>
+</body>
+</html>
